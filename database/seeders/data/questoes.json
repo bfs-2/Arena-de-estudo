@@ -1,0 +1,2249 @@
+{
+ "categorias": [
+  {
+   "ordem": 0,
+   "nome": "Fundamentos do RHEL",
+   "descricao": "Sistema, shell e documentação",
+   "icone": "M4 17l6-6-6-6M12 19h8"
+  },
+  {
+   "ordem": 1,
+   "nome": "Usuários e permissões",
+   "descricao": "Contas, grupos, sudo e ACLs",
+   "icone": "M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"
+  },
+  {
+   "ordem": 2,
+   "nome": "Redes e firewall",
+   "descricao": "NetworkManager e firewalld",
+   "icone": "M5 12a10 10 0 0114 0M8 15a6 6 0 018 0M12 19v.01"
+  },
+  {
+   "ordem": 3,
+   "nome": "Armazenamento e LVM",
+   "descricao": "Partições, LVM e sistemas de arquivos",
+   "icone": "M4 7c0-1.700 3.600-3 8-3s8 1.300 8 3-3.600 3-8 3-8-1.300-8-3zM4 7v10c0 1.700 3.600 3 8 3s8-1.300 8-3V7"
+  },
+  {
+   "ordem": 4,
+   "nome": "Questões de concursos",
+   "descricao": "Provas reais sobre Red Hat e Linux",
+   "icone": "M6 3h9l4 4v14H6zM14 3v5h5M9 13h6M9 17h6"
+  }
+ ],
+ "questoes": [
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O que a opção '-p' faz no comando 'mkdir -p /caminho/novo'?",
+   "opcoes": [
+    "Apaga a pasta se ela já existir",
+    "Cria automaticamente todas as pastas intermediárias que faltarem",
+    "Pede confirmação antes de criar",
+    "Protege a pasta contra remoção"
+   ],
+   "correta": 1,
+   "explicacao": "-p vem de 'parents'. Sem ela, o mkdir falha se alguma pasta do caminho ainda não existir.",
+   "chave": "a039337db72503eb215f059e7456a666c9548295"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Por que a opção '-r' é obrigatória para apagar uma PASTA com 'rm'?",
+   "opcoes": [
+    "Porque rm nunca apaga pastas",
+    "-r (recursive) faz o rm entrar e apagar tudo dentro da pasta, em cascata",
+    "-r é só estética, não muda nada",
+    "-r só funciona como root"
+   ],
+   "correta": 1,
+   "explicacao": "Sem -r, o rm só apaga arquivos individuais e recusa remover diretórios.",
+   "chave": "2d36015b69d650586f989a0386e0680e0cd68405"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'rm -r' e 'rmdir' para apagar uma pasta?",
+   "opcoes": [
+    "São idênticos",
+    "rmdir só apaga a pasta se ela estiver vazia; rm -r apaga mesmo com conteúdo",
+    "rmdir é mais rápido em qualquer caso",
+    "rm -r não existe no RHEL"
+   ],
+   "correta": 1,
+   "explicacao": "rmdir é uma forma mais 'segura': recusa remover se houver qualquer coisa dentro.",
+   "chave": "15fbd533e913d81a421f7419c517388b56a8e2e3"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "O comando 'ln arquivo1 arquivo2' (sem opções) cria o quê?",
+   "opcoes": [
+    "Um atalho (link simbólico)",
+    "Um link físico (hard link), dois nomes para o mesmo conteúdo no disco",
+    "Uma cópia independente do arquivo",
+    "Um arquivo compactado"
+   ],
+   "correta": 1,
+   "explicacao": "Sem a opção -s, ln cria um hard link. Para link simbólico seria necessário usar -s.",
+   "chave": "c6d8dd4d8efd7ffd1a932c49679385ed79203846"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Para que serve o comando 'cat'?",
+   "opcoes": [
+    "Edita arquivos de texto",
+    "Mostra todo o conteúdo de um arquivo de uma vez, na tela",
+    "Apaga arquivos de texto",
+    "Compacta arquivos"
+   ],
+   "correta": 1,
+   "explicacao": "cat ('concatenate') exibe o conteúdo do arquivo de uma só vez — ótimo para arquivos pequenos.",
+   "chave": "1e9b0e2de4774de16064170525ce112c17477b4b"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Qual a vantagem do 'less' sobre o 'cat' ao abrir um arquivo grande?",
+   "opcoes": [
+    "less edita o arquivo automaticamente",
+    "less mostra o conteúdo paginado, permitindo rolar aos poucos",
+    "less é mais rápido para arquivos pequenos",
+    "Não há diferença nenhuma"
+   ],
+   "correta": 1,
+   "explicacao": "less pagina o conteúdo (espaço avança, b volta, q sai), ideal para arquivos longos.",
+   "chave": "60752f7d53e7e042627eec2e30c81ef2ebefa913"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O que a opção '-r' faz no comando 'grep -r \"texto\" /pasta'?",
+   "opcoes": [
+    "Remove o texto encontrado",
+    "Faz a busca considerar também as subpastas",
+    "Mostra só a primeira ocorrência",
+    "Reinicia o grep"
+   ],
+   "correta": 1,
+   "explicacao": "-r (recursive) faz o grep procurar dentro de todas as subpastas, não só na pasta indicada.",
+   "chave": "689d375a247ca29ace7fb31877420c0c5f3b6029"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O que a opção '-i' faz no 'grep -i'?",
+   "opcoes": [
+    "Mostra o número da linha",
+    "Ignora diferença entre maiúsculas e minúsculas na busca",
+    "Inverte o resultado da busca",
+    "Interrompe a busca no primeiro erro"
+   ],
+   "correta": 1,
+   "explicacao": "-i = ignore case. Já -v faria o inverso lógico: mostrar o que NÃO combina com o padrão.",
+   "chave": "a73c22a3426df67e9fb655b4c6da6f9b2c8bc958"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "No comando \"sed -i '/forkbomb/d' arquivo\", o que a letra 'd' faz?",
+   "opcoes": [
+    "Duplica a linha encontrada",
+    "Apaga (delete) a linha que contém o texto 'forkbomb'",
+    "Mostra a data de modificação",
+    "Desabilita o sed"
+   ],
+   "correta": 1,
+   "explicacao": "d = delete. Combinado com -i (edita o arquivo direto), o sed remove a linha encontrada permanentemente.",
+   "chave": "e2e90aa7053b07363b9523765a55308078ecf3e3"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'man -k palavra' (ou 'apropos palavra')?",
+   "opcoes": [
+    "Instala um novo comando",
+    "Procura, em todos os manuais do sistema, comandos relacionados a uma palavra-chave",
+    "Apaga o manual de um comando",
+    "Mostra só exemplos de uso de um comando específico"
+   ],
+   "correta": 1,
+   "explicacao": "Útil quando você não sabe o nome exato do comando, só sabe o que ele deveria fazer.",
+   "chave": "6a0220e0815295b30eeb7102ddcf729b58c28ab8"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O que o comando 'which comando' mostra?",
+   "opcoes": [
+    "A versão do comando",
+    "O caminho completo de onde o executável está instalado",
+    "O manual do comando",
+    "Quantas vezes o comando já foi usado"
+   ],
+   "correta": 1,
+   "explicacao": "which retorna o caminho exato do programa, como em 'which vi' → /usr/bin/vi.",
+   "chave": "a0187fab0f7a1c9d0d29977a3d93a75784d28114"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Para que serve o comando 'file arquivo'?",
+   "opcoes": [
+    "Cria um arquivo vazio",
+    "Analisa o conteúdo real do arquivo e diz o tipo verdadeiro dele",
+    "Lista o conteúdo de uma pasta",
+    "Move o arquivo para outra pasta"
+   ],
+   "correta": 1,
+   "explicacao": "file não confia só na extensão do nome; ele examina o conteúdo real para identificar o tipo.",
+   "chave": "11f1226cb5b2ed748bd2c16084eccdefa592f5a1"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "O comando 'find / -maxdepth 4 -type d -name pasta' procura o quê?",
+   "opcoes": [
+    "Processos chamados 'pasta'",
+    "Pastas (diretórios) com o nome 'pasta', até 4 níveis de profundidade",
+    "Arquivos de texto com a palavra 'pasta' dentro",
+    "Usuários chamados 'pasta'"
+   ],
+   "correta": 1,
+   "explicacao": "-type d filtra só diretórios (d de 'directory'); -maxdepth limita a profundidade da busca.",
+   "chave": "27c2342a3f26187442c79a576febb4a5f2f6d606"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "No comando \"awk -F: '{print $1}' /etc/passwd\", o que '-F:' faz?",
+   "opcoes": [
+    "Formata a saída em negrito",
+    "Define ':' como o separador de colunas daquela linha",
+    "Filtra só a primeira linha do arquivo",
+    "Força a leitura binária do arquivo"
+   ],
+   "correta": 1,
+   "explicacao": "-F define o delimitador de campos; $1 se refere à primeira coluna resultante dessa divisão.",
+   "chave": "3541d8dd51616f3a249857fbba35e02cda16797b"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Para que serve a pasta '/etc' no Red Hat?",
+   "opcoes": [
+    "Guardar os arquivos pessoais dos usuários",
+    "Guardar os arquivos de configuração do sistema e dos serviços instalados",
+    "Guardar arquivos temporários",
+    "Guardar o kernel do sistema"
+   ],
+   "correta": 1,
+   "explicacao": "Exemplos: /etc/passwd, /etc/ssh/sshd_config, /etc/crontab — tudo configuração.",
+   "chave": "62f01f24ce3138d5fb024865ab88c7b4de7b3d46"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Para que serve a pasta '/var'?",
+   "opcoes": [
+    "Guardar programas instalados",
+    "Guardar dados que mudam com o uso do sistema: logs, cache, filas de impressão",
+    "Guardar as chaves SSH",
+    "Guardar o carregador de boot (GRUB)"
+   ],
+   "correta": 1,
+   "explicacao": "'var' vem de 'variável' — conteúdo que cresce e muda constantemente, como logs em /var/log.",
+   "chave": "99a1a15e821cdd6c7c657a4c30dd53abf41d5916"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O que é a pasta '/home'?",
+   "opcoes": [
+    "Onde ficam os arquivos de configuração do sistema",
+    "Onde ficam as pastas pessoais de cada usuário comum",
+    "Onde fica o kernel do Linux",
+    "Onde ficam os dispositivos de hardware"
+   ],
+   "correta": 1,
+   "explicacao": "Cada usuário comum tem sua própria subpasta ali, como /home/student.",
+   "chave": "3800abcdb2b67bc0176e7f22cf397e748440f18a"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "O que acontece com a pasta '/bin' nas versões modernas do RHEL?",
+   "opcoes": [
+    "Ela foi removida completamente",
+    "Ela é só um link simbólico (atalho) apontando para /usr/bin",
+    "Ela virou um arquivo compactado",
+    "Ela guarda só os jogos do sistema"
+   ],
+   "correta": 1,
+   "explicacao": "Reorganização chamada 'usrmerge': /bin, /sbin e /lib viraram atalhos para dentro de /usr/.",
+   "chave": "a81b81f92b91e4510587d7c68a8e08dd819f3662"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O que a pasta '/boot' guarda?",
+   "opcoes": [
+    "Os arquivos pessoais do root",
+    "Os arquivos necessários para iniciar o sistema: kernel e configuração do GRUB",
+    "Os logs do sistema",
+    "As chaves SSH do servidor"
+   ],
+   "correta": 1,
+   "explicacao": "/boot guarda o kernel (vmlinuz), o initramfs e a configuração do GRUB.",
+   "chave": "20b00708b25faf90495789ba440b0ba2829a3b1f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Qual a característica principal da pasta '/tmp'?",
+   "opcoes": [
+    "Ela nunca pode ser apagada",
+    "Guarda arquivos temporários, que costumam ser limpos periodicamente",
+    "Só o root pode gravar nela",
+    "É montada como somente leitura"
+   ],
+   "correta": 1,
+   "explicacao": "/tmp é de uso geral e temporário; muitos sistemas limpam seu conteúdo automaticamente com o tempo.",
+   "chave": "1b9b50672d445454bb99be4fddcaa78c454df2cb"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 3,
+   "enunciado": "No modo de emergência do GRUB, para que serve o parâmetro 'rd.break'?",
+   "opcoes": [
+    "Formata o disco automaticamente",
+    "Interrompe o boot logo após o initramfs, antes de qualquer serviço (login, cron) iniciar",
+    "Reinicia a máquina repetidamente",
+    "Desativa o SELinux de vez"
+   ],
+   "correta": 1,
+   "explicacao": "Isso entrega um shell de emergência, usado para recuperar senha de root ou editar arquivos com segurança.",
+   "chave": "24e616817083bd44cc597a4769806b50d9b8c200"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 3,
+   "enunciado": "Para que serve o comando 'chroot /sysroot' dentro do modo de emergência?",
+   "opcoes": [
+    "Cria uma nova partição chamada sysroot",
+    "Faz o shell 'entrar' no sistema real, tratando-o como se fosse a raiz de verdade",
+    "Apaga o conteúdo de /sysroot",
+    "Verifica a integridade do disco"
+   ],
+   "correta": 1,
+   "explicacao": "chroot = 'change root'. Permite rodar comandos como passwd usando os arquivos reais do sistema.",
+   "chave": "da16d864961113bda0988a9b323b3f2a01976d82"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 3,
+   "enunciado": "Por que criamos o arquivo '/.autorelabel' depois de editar o /etc/shadow via chroot?",
+   "opcoes": [
+    "Para renomear o usuário root",
+    "Para forçar o SELinux a corrigir os rótulos de segurança de todo o disco no próximo boot",
+    "Para criar um backup automático",
+    "É só um arquivo de log sem função real"
+   ],
+   "correta": 1,
+   "explicacao": "Editar arquivos sensíveis fora do boot normal pode deixar o rótulo de segurança errado, bloqueando o login.",
+   "chave": "c24c109b3e02009704e3f9922706fecb8748f816"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 3,
+   "enunciado": "Qual a diferença entre 'touch /.autorelabel' e 'restorecon -Rv /pasta'?",
+   "opcoes": [
+    "São exatamente a mesma coisa",
+    "autorelabel relabela o disco inteiro no próximo boot; restorecon corrige só um caminho específico, na hora",
+    "restorecon é mais lento que o autorelabel",
+    "autorelabel só funciona em pendrives"
+   ],
+   "correta": 1,
+   "explicacao": "restorecon é mais rápido e cirúrgico, usado quando só uma pasta específica precisa de correção.",
+   "chave": "aac3abc35c285237393a86fc8873b22d45188894"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Qual comando usamos para preparar o ambiente de um laboratório Red Hat, como em 'lab start nome-do-lab'?",
+   "opcoes": [
+    "systemctl",
+    "lab",
+    "grade",
+    "start-lab"
+   ],
+   "correta": 1,
+   "explicacao": "'lab' é um comando específico do ambiente de treinamento Red Hat, não existe em sistemas comuns.",
+   "chave": "c0bcb5d7fecc5f30fe76e4df56ce1aa9589716da"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "No Red Hat Enterprise Linux 8, o gerenciamento de serviços é realizado por meio do systemd – sistema de inicialização e controle de unidades adotado como padrão. Qual dos comandos a seguir é utilizado para verificar o status de um serviço específico? (Consulplan · Pref. Vermelho Novo, 2025)",
+   "opcoes": [
+    "initctl status <nome_do_serviço>",
+    "service status <nome_do_serviço>",
+    "systemctl status <nome_do_serviço>",
+    "chkconfig --status <nome_do_serviço>"
+   ],
+   "correta": 2,
+   "explicacao": "No RHEL 8 o systemd é o padrão e o 'systemctl status nome' mostra se o serviço está ativo, falho ou parado, além dos últimos logs. initctl é do Upstart e chkconfig/service são legados.",
+   "chave": "3e67d64fcfd2315b9acab1bfadaa09fced4fbf29"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "Assinale a alternativa que contém o principal arquivo de configuração de uma instalação Apache HTTP, da distribuição Red Hat, em sua configuração padrão. (VUNESP · Pref. Piracicaba, 2024)",
+   "opcoes": [
+    "httpd.conf",
+    "main.config",
+    "read.me",
+    "web.php",
+    "apache.ini"
+   ],
+   "correta": 0,
+   "explicacao": "No Red Hat o Apache se chama httpd e seu arquivo principal é o httpd.conf (em /etc/httpd/conf/).",
+   "chave": "36674e836af32a7caa1d50adef6e940efe10d81f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "Tanto o Windows 10 quanto o Linux Red Hat possuem interfaces gráficas; entretanto, diferentemente do Windows 10, no Linux é possível escolher entre ambientes de desktop, como, por exemplo, entre o GNOME e KDE. (CESPE · TELEBRAS, 2022)",
+   "opcoes": [
+    "Certo",
+    "Errado"
+   ],
+   "correta": 0,
+   "explicacao": "Certo. No Linux o ambiente gráfico é um componente separado do sistema, então dá para instalar e alternar entre GNOME, KDE e outros.",
+   "chave": "209dfa512734ac9815dc6b6063e58868efaaab10"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "No Red Hat Enterprise Linux 7, firewalld é um serviço de firewall baseado em host (host-based firewall) que utiliza os conceitos de zonas e serviços, em que as zonas são conjuntos predefinidos de regras. (CESPE · TCE SC, 2022)",
+   "opcoes": [
+    "Certo",
+    "Errado"
+   ],
+   "correta": 0,
+   "explicacao": "Certo. O firewalld trabalha com zonas (public, home, trusted etc.), cada uma com regras predefinidas, e com serviços liberados por nome (ssh, http...).",
+   "chave": "7f8d1878ccc40f35ddba07b35d96666452a3c719"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "Ferramenta do Red Hat Enterprise Linux 8 para obter, instalar, excluir, consultar e gerenciar pacotes de software RPM a partir de repositórios oficiais bem como outros repositórios de terceiros. (FGV · SEMSA, 2022)",
+   "opcoes": [
+    "installapt.",
+    "snapd.",
+    "updatepckt.",
+    "dpkg.",
+    "yum."
+   ],
+   "correta": 4,
+   "explicacao": "yum (e seu sucessor dnf) gerencia pacotes RPM a partir de repositórios, resolvendo dependências. dpkg é do mundo Debian.",
+   "chave": "30c20ab74950cf0b9c9a47bf8d2e20e118b4de83"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 3,
+   "enunciado": "O sistema de monitoramento alertou quanto à elevada quantidade de processos em um servidor RedHat Enterprise Linux. Foram identificados vários processos filhos sem a presença de pais, com consumo pequeno de recursos, tratando-se de processos zumbis. Assinale a opção que apresenta os comandos utilizados no RedHat Enterprise Linux 5, 6 ou 7 para identificar os PIDs dos processos zumbis. (CESPE · TJ RJ, 2021)",
+   "opcoes": [
+    "ps aux | awk {'print $8'} wc -l",
+    "kill PID zumbi",
+    "ps aux | awk '$8==\"Z\" { print $0 }'",
+    "abrt-cli info zumbi",
+    "abrt-cli list zumbi"
+   ],
+   "correta": 2,
+   "explicacao": "Na saída do 'ps aux', a coluna 8 é o estado do processo, e zumbis aparecem com 'Z'. O awk filtra justamente as linhas com esse estado.",
+   "chave": "30b7adc5e7e57b923e6d1de1c0d13fec3125263e"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "Dos sistemas operacionais abaixo, aquele que é uma versão incrementada do sistema livre Linux é: (IBADE · Pref. Vitória, 2019)",
+   "opcoes": [
+    "Z/OS.",
+    "Z/VM.",
+    "Windows Server.",
+    "RedHat.",
+    "VmWare."
+   ],
+   "correta": 3,
+   "explicacao": "Red Hat é uma distribuição baseada no Linux. Z/OS e Z/VM são da IBM, e VMware é virtualização.",
+   "chave": "eb25ff5e6a67cf3c5fd13f6be6bc770a2c31e4e7"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "No Linux Redhat, o seguinte comando é utilizado para desinstalação manual de pacotes: (FUNRIO · Pré-Sal Petróleo, 2017)",
+   "opcoes": [
+    "# dpkg -r",
+    "# rpm -e",
+    "# removepkg -keep",
+    "# rpm -i",
+    "# dpkg -i"
+   ],
+   "correta": 1,
+   "explicacao": "'rpm -e' (erase) remove um pacote RPM. 'rpm -i' instala, e dpkg é do Debian.",
+   "chave": "28761dd10a4eeea4b437f65a83246392e57c00e9"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "Um administrador de um servidor Linux RedHat precisa colocar um processo suspenso em background. O comando adequado a essa operação é o: (FUNCAB · CREA AC, 2016)",
+   "opcoes": [
+    "bg.",
+    "fg.",
+    "jobs.",
+    "kill.",
+    "top."
+   ],
+   "correta": 0,
+   "explicacao": "'bg' retoma em segundo plano um job que estava suspenso (Ctrl+Z). 'fg' traz para o primeiro plano e 'jobs' apenas lista.",
+   "chave": "502712423c614995e70f3ec00e2100bd870c0884"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "Um Analista de Sistemas deseja saber a versão do sistema operacional Red Hat Linux do servidor sob sua administração. Para obter essa informação ele deve executar o comando (FCC · Pref. Teresina, 2016)",
+   "opcoes": [
+    "info -v.",
+    "top -al.",
+    "uname -sr.",
+    "vmlinuz -v.",
+    "linuxconf."
+   ],
+   "correta": 2,
+   "explicacao": "'uname -sr' mostra o nome e a versão (release) do kernel. É a melhor opção entre as listadas. Para a versão da distribuição, hoje se usa 'cat /etc/redhat-release'.",
+   "chave": "345ed0770d0b205ac10a223f04f4072795b22be3"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "São exemplos de comandos para reiniciar o Apache nas versões linux RedHat e Ubuntu, respectivamente: (Fiotec/Fiocruz, 2016)",
+   "opcoes": [
+    "service apache restart ou /etc/init.d/http restart.",
+    "service httpd restart ou /etc/init.d/apache2 restart.",
+    "/etc/init.d/apache2 reload ou /etc/init.d/apache2 restart.",
+    "/etc/init.d/httpd reload ou /etc/init.d/apache2 restart.",
+    "service apache reload ou /etc/init.d/http reload."
+   ],
+   "correta": 1,
+   "explicacao": "No Red Hat o serviço se chama httpd, e no Ubuntu/Debian, apache2.",
+   "chave": "0a2e9ef55ebe7ef0e17ff365a6a641d2e3f67f76"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "Se o superusuário de uma máquina com Linux RedHat precisar acessar programas essenciais para administração do sistema, que são de seu uso exclusivo, como, por exemplo, o adduser, o diretório no qual esses programas se encontram é: (FUNCAB · CREA AC, 2016)",
+   "opcoes": [
+    "/dev",
+    "/etc",
+    "/mnt",
+    "/proc",
+    "/sbin"
+   ],
+   "correta": 4,
+   "explicacao": "/sbin guarda binários de administração do sistema, voltados ao root, como adduser, fdisk e ifconfig.",
+   "chave": "4d87b0c7a8c1d6bc792d32c4c4327381341ab0e1"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "O Red Hat é um (a): (Moura Melo · Pref. Cajamar, 2016)",
+   "opcoes": [
+    "Distribuição do Linux.",
+    "Tipo de Firewall do Windows.",
+    "Programa de manipulação de imagens.",
+    "Aplicação do Windows Explorer."
+   ],
+   "correta": 0,
+   "explicacao": "Red Hat é uma distribuição Linux voltada ao mercado corporativo (RHEL).",
+   "chave": "d7a42dff9abf624a24697856486fe8829b6f5afe"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "O Administrador de um servidor com sistema operacional Red Hat Linux deve alterar a data de validade da conta de um usuário. Para isso, deve utilizar o comando (FCC · Pref. Teresina, 2016)",
+   "opcoes": [
+    "userchg.",
+    "passwd.",
+    "moduser.",
+    "date.",
+    "chage."
+   ],
+   "correta": 4,
+   "explicacao": "O 'chage' (change age) altera a data de expiração da conta e da senha, além dos prazos de troca.",
+   "chave": "36c17608181a713307470f3b78ab18cba61c48e3"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "O Red Hat Linux é uma das distribuições Linux mais populares. A instalação do Red Hat pode ser feita usando somente o modo texto ou com uma interface gráfica. Assinale, a seguir, uma das interfaces gráficas utilizadas para instalação do Red Hat. (IDECAN · INMETRO, 2015)",
+   "opcoes": [
+    "KDE.",
+    "LILO.",
+    "Grub.",
+    "Gnome.",
+    "Disk Druid."
+   ],
+   "correta": 3,
+   "explicacao": "O instalador gráfico do Red Hat (Anaconda) usa o GNOME. LILO e Grub são gerenciadores de boot, e Disk Druid é a ferramenta de particionamento.",
+   "chave": "ef5a49edecacc3e18d5027c5f3f5ad6f47669bdc"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 3,
+   "enunciado": "No Red Hat Linux 7, o LILO pode ser utilizado como gerenciador de inicialização. Sobre algumas mensagens de erro do LILO, relacione as colunas. Mensagens: 1. L <nn>; 2. LI; 3. LIL; 4. LIL?; 5. LIL-. Descrições, na ordem: ( ) o carregador do segundo estágio carregou em um endereço errado; ( ) representa um dos 16 códigos de erro de disco; ( ) encontrou uma tabela de descrição corrompida; ( ) o carregador do segundo estágio carregou, mas não pôde ser executado; ( ) a tabela de descrição não pôde ser lida. A sequência está correta em: (IDECAN · PRODEB, 2015)",
+   "opcoes": [
+    "5, 3, 1, 4, 2.",
+    "4, 1, 5, 2, 3.",
+    "2, 4, 3, 5, 1.",
+    "3, 2, 4, 1, 5."
+   ],
+   "correta": 1,
+   "explicacao": "L nn = erro de disco; LI = segundo estágio carregado mas não executa; LIL = tabela de descrição ilegível; LIL? = endereço errado; LIL- = tabela corrompida. Na ordem das descrições: 4, 1, 5, 2, 3.",
+   "chave": "a3c590fb1774e13266bdadead9d068bd0b48df3e"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "Usuária de um computador com sistema operacional Linux Red Hat, Maria deseja trocar a sua senha de acesso ao sistema. Para isso ela deve utilizar o comando: (FCC · TRT 13, 2014)",
+   "opcoes": [
+    "chguser",
+    "chmod",
+    "passwd",
+    "userchg",
+    "chpass"
+   ],
+   "correta": 2,
+   "explicacao": "'passwd' altera a senha do usuário. chmod muda permissões de arquivos.",
+   "chave": "377490f76dd52c6f2b2b6986d7b4fb14d597cd03"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "No sistema operacional Linux Red Hat, o comando umask é utilizado para definir as permissões padrão utilizadas para os novos arquivos e diretórios criados. Considere que o valor umask é 022. O novo arquivo criado nessas condições terá permissões (FCC · TRT 1, 2014)",
+   "opcoes": [
+    "rwx r-x r-x.",
+    "--- r-x r-x.",
+    "rwx –w- -w-.",
+    "rw- r-- r--.",
+    "--- -w- -w-."
+   ],
+   "correta": 3,
+   "explicacao": "Arquivos novos partem de 666 (sem execução) e a umask 022 remove escrita de grupo e outros: 644 = rw-r--r--. Diretórios partiriam de 777 e ficariam 755.",
+   "chave": "ae10a9ae73221941f88f5842fcd2407d02552a2c"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "O técnico administrador de um computador com sistema operacional Linux Red Hat deve adicionar um novo usuário visitante ao sistema com tempo determinado. Utilizando o comando useradd, a opção a ser utilizada para definir a data final de validade para o usuário é: (FCC · TRT 13, 2014)",
+   "opcoes": [
+    "-x",
+    "-e",
+    "-c",
+    "-g",
+    "-t"
+   ],
+   "correta": 1,
+   "explicacao": "'useradd -e AAAA-MM-DD' define a data de expiração da conta. -c é comentário e -g é o grupo principal.",
+   "chave": "6f27dca7a50829a2769410d5d9f807c9e6d00521"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "José, técnico administrador dos computadores com sistema operacional Linux Red Hat do TRT da 1ª Região, necessita saber o espaço em disco utilizado pelo usuário Pedro no seu diretório home. Para essa finalidade, José pode utilizar o comando (FCC · TRT 1, 2014)",
+   "opcoes": [
+    "du.",
+    "df.",
+    "top.",
+    "fdisk.",
+    "ps."
+   ],
+   "correta": 0,
+   "explicacao": "'du' (disk usage) mostra o espaço usado por arquivos e diretórios (ex.: du -sh /home/pedro). 'df' mostra o espaço por sistema de arquivos.",
+   "chave": "1e92301caa4ffb298a3eb88ac02d56029a5138cf"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "Mario, usuário comum de um computador com sistema operacional Linux Red Hat, executou 'ls –al' e obteve (de forma parcial): -rw-r--r-- 1 root root 326 Aug 15 2012 updatedb.conf e drwxr-xr-x 10 root root 4096 Oct 17 2012 X11. De acordo com as informações apresentadas, pode-se dizer que Mario (FCC · TRT 13, 2014)",
+   "opcoes": [
+    "não pode ler o conteúdo do arquivo updatedb.conf.",
+    "pode executar o programa X11.",
+    "pode modificar o conteúdo do arquivo updatedb.conf.",
+    "pode acessar e ver o conteúdo do diretório X11.",
+    "não pode ver o conteúdo do arquivo X11."
+   ],
+   "correta": 3,
+   "explicacao": "Mario é 'outros'. No diretório X11 (drwxr-xr-x), outros têm r-x: podem listar e entrar. O updatedb.conf (rw-r--r--) só dá leitura a outros, e X11 é um diretório, não um programa.",
+   "chave": "dc4ec96acdd6abdf371792482ed9abe5efc29d7b"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 3,
+   "enunciado": "O sistema operacional Linux Red Hat permite o uso de diversos sistemas de arquivos de disco. Uma razão para escolher o Ext4 ao invés do JFS2 é (FCC · TRT 1, 2014)",
+   "opcoes": [
+    "a maior capacidade de armazenamento do Ext4 se comparada com a capacidade do JFS2.",
+    "o fato do Ext4 realizar o jornaling apenas de metadados, o que aumenta o seu desempenho.",
+    "a existência do recurso de compressão de dados no Ext4, o que aumenta a velocidade de acesso aos dados.",
+    "a existência do recurso de superblocos que mantém informações sobre o sistema de arquivos.",
+    "o fato do Ext4 possuir recursos de jornaling de maior confiabilidade de dados que o JFS2."
+   ],
+   "correta": 0,
+   "explicacao": "Gabarito segundo o critério da banca: a maior capacidade do Ext4 (volumes de até 1 EiB). Ext4 não tem compressão nativa, e superblocos existem em ambos.",
+   "chave": "b4bbadd7f2e6355294b40fe3eb010b884643049d"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "Márcio, usuário de um computador com Linux Red Hat, iniciou a execução do aplicativo xedit em um terminal xterm em primeiro plano. Para liberar o terminal, fazendo com que o xedit seja executado em segundo plano (background), Márcio deve executar a seguinte sequência: pressionar as teclas (FCC · TRT 13, 2014)",
+   "opcoes": [
+    "Ctrl+a, depois Ctrl+v.",
+    "All+F7, depois Ctrl+c.",
+    "Ctrl+c, depois digitar & e pressionar Enter.",
+    "Alt+F1, depois Ctrl+f e a tecla Enter.",
+    "Ctrl+z, depois digitar bg e pressionar Enter."
+   ],
+   "correta": 4,
+   "explicacao": "Ctrl+Z suspende o processo em primeiro plano, e 'bg' o retoma em segundo plano. Ctrl+C o encerraria.",
+   "chave": "c299217f3610c6e4a79d0c260c876fa8ba65758e"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "Assinale a alternativa ERRADA com relação aos sistemas operacionais Red Hat Linux e Microsoft Windows XP. (CETAP · DETRAN RR, 2010)",
+   "opcoes": [
+    "No Red Hat Linux, o comando ps lista os processos em execução naquele momento.",
+    "Um arquivo executável do sistema Red Hat Linux cuja saída do comando ls seja -rwxr--r--, pode ser executado somente pelo usuário dono desse arquivo.",
+    "O comando netstat no Windows XP lista todas as conexões TCP ativas incluindo as portas.",
+    "O Windows XP oferece um aplicativo para gerenciamento de serviços no qual é possível iniciar, parar ou reiniciar serviços. Esse aplicativo pode ser encontrado no painel de controle, opção de ferramentas administrativas.",
+    "Ao definir uma variável de ambiente do tipo “variável de usuário” no Windows XP, a mesma estará vigente para todos os usuários do sistema."
+   ],
+   "correta": 4,
+   "explicacao": "Uma variável de usuário vale apenas para aquele usuário. Para valer a todos seria uma variável de sistema.",
+   "chave": "6ceb04f7d3062f4475b3fc6a7ac878c233237345"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 3,
+   "enunciado": "Durante a inicialização de um Sistema Operacional Linux RedHat, qual arquivo de script é executado primeiro pelo comando init? (FGV · DETRAN RN, 2010)",
+   "opcoes": [
+    "/etc/rc.d/rc.sysinit",
+    "/etc/inittab",
+    "/etc/fstab",
+    "/etc/rc.d/init/rc.sysinit",
+    "/etc/rc.d/init.d"
+   ],
+   "correta": 0,
+   "explicacao": "O init lê o /etc/inittab, que é um arquivo de configuração, e a primeira linha de script que ele dispara é o /etc/rc.d/rc.sysinit (inicialização do sistema).",
+   "chave": "ab5b4920f8d7d5dc1abdee582e6c80b4c9eabecf"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "Dos comandos a seguir, quais são utilizados para gerenciamento de pacotes em sistemas Linux baseados em Red Hat e Debian, respectivamente? (FADESP · CREA PA, 2010)",
+   "opcoes": [
+    "yum e apt",
+    "rpm e yum",
+    "apt e rpm",
+    "dkpg e apt"
+   ],
+   "correta": 0,
+   "explicacao": "Red Hat usa yum (e rpm), e Debian usa apt (e dpkg).",
+   "chave": "4c5a901d12756fd8678aec0c8d09c833763db83f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 1,
+   "enunciado": "O Red Hat é uma distribuição do sistema operacional: (CESGRANRIO · MPE RO, 2005)",
+   "opcoes": [
+    "AIX.",
+    "Linux.",
+    "Solaris.",
+    "Novell.",
+    "Microsoft."
+   ],
+   "correta": 1,
+   "explicacao": "Red Hat é uma distribuição Linux.",
+   "chave": "c4f565000c5535b8dbe6a312ac75074450bd3eed"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 4,
+   "nivel": 2,
+   "enunciado": "Atender total e completamente as estações de cliente de alta qualidade, conveniente para empregar uma ampla gama de implementações do escritório e também atrativo para pequenas e médias empresas são os objetivos do sistema Red Hat (FCC · TRT 13, 2005)",
+   "opcoes": [
+    "Network.",
+    "Desktop.",
+    "Enterprise Linux WS.",
+    "Enterprise Linux ES.",
+    "Enterprise Linux AS."
+   ],
+   "correta": 2,
+   "explicacao": "O RHEL WS (Workstation) era a versão voltada a estações de trabalho. ES e AS eram versões para servidores.",
+   "chave": "cdf05b28447e79b9f1d4cf9c080fc02de93bc3cb"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "No 'useradd', qual opção adiciona o usuário a grupos SUPLEMENTARES (podendo ser vários)?",
+   "opcoes": [
+    "-g minúsculo",
+    "-G maiúsculo",
+    "-s minúsculo",
+    "-U maiúsculo"
+   ],
+   "correta": 1,
+   "explicacao": "-G (maiúsculo) = grupos suplementares, múltiplos. -g (minúsculo) define o grupo PRIMÁRIO, único.",
+   "chave": "54f5b3df404d8fd359e39c2e86c6ae21712281c8"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Qual opção do 'chage' define o número MÁXIMO de dias que uma senha pode durar?",
+   "opcoes": [
+    "-m",
+    "-M",
+    "-E",
+    "-d"
+   ],
+   "correta": 1,
+   "explicacao": "-M (Maximum) é o teto de dias. -m (minimum) é o mínimo de dias entre trocas de senha.",
+   "chave": "435eaa7f2f6998316e3f1a5218fc60252e86c24f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "O que 'chage -E data usuario' configura?",
+   "opcoes": [
+    "O máximo de dias da senha",
+    "A data em que a CONTA INTEIRA expira",
+    "A data da última troca de senha",
+    "Um aviso de expiração por e-mail"
+   ],
+   "correta": 1,
+   "explicacao": "-E (Expire) define quando a conta toda deixa de funcionar, não só a senha.",
+   "chave": "02843524b7c5338afacb0fa431cb1e2c2ddd5f47"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "O que 'chage -d 0 usuario' faz?",
+   "opcoes": [
+    "Bloqueia a conta imediatamente",
+    "Define a senha como expirada, forçando troca no próximo login",
+    "Apaga a senha do usuário",
+    "Faz a senha nunca expirar"
+   ],
+   "correta": 1,
+   "explicacao": "-d 0 zera a data da última troca de senha (1970-01-01), fazendo o sistema entender que ela já expirou.",
+   "chave": "030c411f278ed6db71562d84fba5a60cadcb411a"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "O que 'chage -l usuario' faz?",
+   "opcoes": [
+    "Bloqueia o usuário",
+    "Lista as configurações de validade de senha, sem alterar nada",
+    "Define um novo limite de dias",
+    "Apaga o histórico de login"
+   ],
+   "correta": 1,
+   "explicacao": "-l (list) é somente leitura: mostra as configurações atuais de envelhecimento de senha.",
+   "chave": "2001fe26a8ad7c26f1195c98ab5872ee67692488"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que a segunda coluna da saída de 'passwd -S usuario' indica quando aparece 'L'?",
+   "opcoes": [
+    "Senha válida (Logada)",
+    "Conta bloqueada (Locked)",
+    "Senha sem data de expiração",
+    "Login automático ativado"
+   ],
+   "correta": 1,
+   "explicacao": "L = Locked (bloqueada). NP = sem senha. P = senha válida.",
+   "chave": "1f9c6469a3594dda1f18f5b526c597ed911f69f8"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'passwd -u usuario'?",
+   "opcoes": [
+    "Atualiza o sistema",
+    "Desbloqueia (unlock) a conta do usuário",
+    "Define a senha como 'u'",
+    "Apaga o usuário"
+   ],
+   "correta": 1,
+   "explicacao": "-u (unlock) remove o bloqueio da conta, permitindo login novamente.",
+   "chave": "a4e9867232716f42efee18b6cabefa506bb71948"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Para que serve a opção '--stdin' no comando passwd?",
+   "opcoes": [
+    "Mostra a senha na tela",
+    "Lê a nova senha pela entrada padrão (via pipe), sem precisar digitar interativamente",
+    "Define a senha como vazia",
+    "Gera uma senha aleatória"
+   ],
+   "correta": 1,
+   "explicacao": "Muito usado em scripts: echo senha | passwd --stdin usuario.",
+   "chave": "42397100783c262f00b3dfcb1c16c0111e0b449b"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Qual comando corrige o SHELL de um usuário, por exemplo de /bin/false para /bin/bash?",
+   "opcoes": [
+    "chage -s",
+    "usermod -s",
+    "passwd -s",
+    "useradd -s"
+   ],
+   "correta": 1,
+   "explicacao": "usermod -s /bin/bash usuario altera o programa que interpreta os comandos daquele usuário.",
+   "chave": "b645e30e00f88abe6bff330a8b162e0f6d862ead"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que 'groupadd -g 35000 nomegrupo' faz?",
+   "opcoes": [
+    "Cria o grupo com 35000 membros",
+    "Cria o grupo definindo manualmente o GID como 35000",
+    "Apaga o grupo de GID 35000",
+    "Renomeia o grupo"
+   ],
+   "correta": 1,
+   "explicacao": "-g minúsculo define o número de identificação (GID) do grupo manualmente.",
+   "chave": "e561d1d3b3e9e1bff69ccf16e4aa34cb7fdff4f5"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'su usuario' e 'su - usuario'?",
+   "opcoes": [
+    "Não há diferença",
+    "Com o hífen, você também vai para a pasta pessoal e carrega todo o ambiente do novo usuário",
+    "Sem hífen, pede a senha duas vezes",
+    "O hífen só funciona para o root"
+   ],
+   "correta": 1,
+   "explicacao": "su - simula um login completo; su sem hífen só troca a identidade, mantendo o diretório atual.",
+   "chave": "3656820f106b448c5ecf93acc0a5fd03b53d233a"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'sudo comando' e 'sudo -i'?",
+   "opcoes": [
+    "sudo -i é mais lento",
+    "sudo comando roda só aquele comando como root e volta; sudo -i abre uma sessão completa como root",
+    "Não há diferença",
+    "sudo comando exige senha do root"
+   ],
+   "correta": 1,
+   "explicacao": "sudo -i mantém você como root até digitar exit; sudo comando é pontual, para um único comando.",
+   "chave": "70b96fbeada1d7d4ce14aecb18c1163e80acd9c9"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Para que serve o comando 'visudo -c'?",
+   "opcoes": [
+    "Cria um novo arquivo sudoers",
+    "Apenas verifica a sintaxe dos arquivos do sudo, sem abrir editor nenhum",
+    "Apaga todas as regras de sudo",
+    "Lista quem usou o sudo recentemente"
+   ],
+   "correta": 1,
+   "explicacao": "-c (check) valida /etc/sudoers e os arquivos de /etc/sudoers.d/ sem risco de travar o sudo.",
+   "chave": "4a5d657fbe4c92f9ab31910b7edceda14c4b3df1"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Por que é recomendado criar arquivos em /etc/sudoers.d/ em vez de editar /etc/sudoers diretamente?",
+   "opcoes": [
+    "Não há motivo, é só estilo",
+    "Um erro de sintaxe no arquivo principal pode travar o sudo até para o root",
+    "Arquivos em sudoers.d rodam mais rápido",
+    "/etc/sudoers não existe mais nas versões novas"
+   ],
+   "correta": 1,
+   "explicacao": "Isolar as regras em sudoers.d reduz o risco de um erro bloquear o acesso administrativo de todo mundo.",
+   "chave": "870db6bb4c5d013502ad53a3f304be514ba6fb24"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 3,
+   "enunciado": "No 'chmod 2770 pasta', o que o dígito '2' representa?",
+   "opcoes": [
+    "Sticky bit",
+    "Setgid — arquivos novos herdam o grupo da pasta",
+    "Setuid",
+    "Permissão de leitura para todos"
+   ],
+   "correta": 1,
+   "explicacao": "O dígito extra '2' ativa o setgid, fazendo novos arquivos herdarem o grupo dono da pasta.",
+   "chave": "75a1ba1fe628454ea23ec198f80297d753b941ee"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "No 'chmod 1777 pasta', o que o dígito '1' representa?",
+   "opcoes": [
+    "Setgid",
+    "Sticky bit — só o dono do arquivo pode removê-lo",
+    "Setuid",
+    "Bit de execução extra"
+   ],
+   "correta": 1,
+   "explicacao": "O sticky bit impede que outros usuários apaguem arquivos que não são deles, mesmo com permissão de escrita na pasta.",
+   "chave": "b8af277f0fc50d0656c4a751ceed66d1bf7f8368"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "O que 'chmod 755 pasta' concede?",
+   "opcoes": [
+    "Leitura só para o dono",
+    "Leitura e execução para todos, escrita só para o dono",
+    "Nenhuma permissão para ninguém",
+    "Escrita para todos, leitura só para o dono"
+   ],
+   "correta": 1,
+   "explicacao": "7 (dono) = rwx; 5 (grupo e outros) = r-x. Padrão comum para pastas de sites e executáveis públicos.",
+   "chave": "80b27f320a26f2ef55808b49d74f39a7fa0ec733"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Qual comando muda o DONO e o GRUPO de um arquivo ao mesmo tempo?",
+   "opcoes": [
+    "chgrp dono:grupo arquivo",
+    "chown dono:grupo arquivo",
+    "chmod dono:grupo arquivo",
+    "chattr dono:grupo arquivo"
+   ],
+   "correta": 1,
+   "explicacao": "chown aceita a sintaxe dono:grupo para alterar os dois de uma vez.",
+   "chave": "ac9ccdd2012dc04632f034b47ae86dd3e66ca189"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Qual comando muda APENAS o grupo dono de um arquivo, sem alterar o usuário dono?",
+   "opcoes": [
+    "chown",
+    "chgrp",
+    "chmod",
+    "usermod"
+   ],
+   "correta": 1,
+   "explicacao": "chgrp altera só o grupo; chown pode alterar dono e grupo juntos.",
+   "chave": "1ab275c407856d1c149a9cd4fe6a85b0cc8f4d6b"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que 'umask 007' faz?",
+   "opcoes": [
+    "Dá todas as permissões para todos",
+    "Bloqueia toda permissão para 'outros', preservando dono e grupo em arquivos/pastas novos",
+    "Apaga todas as permissões de todo mundo",
+    "Só afeta arquivos já existentes"
+   ],
+   "correta": 1,
+   "explicacao": "A umask subtrai do máximo teórico (777/666). 007 tira só as permissões de 'outros'.",
+   "chave": "036e9308b0891b60ed0c7a81bf6459d557b859cb"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'chattr +i arquivo'?",
+   "opcoes": [
+    "Aumenta as permissões do arquivo",
+    "Torna o arquivo imutável — nem o dono consegue apagá-lo sem remover o atributo antes",
+    "Esconde o arquivo da listagem",
+    "Compacta o arquivo"
+   ],
+   "correta": 1,
+   "explicacao": "+i ativa o atributo imutável, uma proteção mais profunda que as permissões comuns do chmod.",
+   "chave": "54ff343b9fe64efe0980b1264dc37ef199fe9b60"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Qual comando mostra os atributos especiais (do chattr) de um arquivo?",
+   "opcoes": [
+    "chmod -l",
+    "lsattr",
+    "getfacl",
+    "stat -a"
+   ],
+   "correta": 1,
+   "explicacao": "lsattr lista atributos como o imutável (i), diferente das permissões tradicionais mostradas pelo ls -l.",
+   "chave": "e0d36240ab1459802b8d51ba1624bf19782f954f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que o comando 'id usuario' mostra?",
+   "opcoes": [
+    "Só o nome completo do usuário",
+    "O UID do usuário e todos os grupos (primário e suplementares) aos quais ele pertence",
+    "A senha criptografada",
+    "O histórico de logins"
+   ],
+   "correta": 1,
+   "explicacao": "id mostra a identidade completa: UID, GID primário e todos os grupos suplementares.",
+   "chave": "e7ce7a38d08911304dada206fe4d004614922d78"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 1,
+   "enunciado": "Qual é a sintaxe correta para conectar via SSH como o usuário 'aluno' na máquina 'servidor'?",
+   "opcoes": [
+    "ssh servidor@aluno",
+    "ssh aluno@servidor",
+    "ssh -u aluno servidor",
+    "ssh connect aluno servidor"
+   ],
+   "correta": 1,
+   "explicacao": "A sintaxe padrão é sempre usuario@maquina.",
+   "chave": "da562c31df9d743ebb3c78ecb7efb75149a04861"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'scp'?",
+   "opcoes": [
+    "Verificar a velocidade da rede",
+    "Copiar arquivos entre máquinas pela rede, de forma segura (usa o protocolo do SSH)",
+    "Escanear portas abertas",
+    "Reiniciar o serviço SSH"
+   ],
+   "correta": 1,
+   "explicacao": "scp = Secure Copy, usa o mesmo tipo de conexão criptografada do SSH.",
+   "chave": "f9ca7827f6e527c58da6b646cc19872bf329a80e"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 1,
+   "enunciado": "Para que serve o comando 'ssh-keygen'?",
+   "opcoes": [
+    "Apagar chaves SSH antigas",
+    "Gerar um novo par de chaves SSH (pública e privada)",
+    "Testar a velocidade da conexão SSH",
+    "Listar usuários conectados via SSH"
+   ],
+   "correta": 1,
+   "explicacao": "Gera as duas chaves: a privada (fica só na sua máquina) e a pública (pode ser compartilhada).",
+   "chave": "c14a08e6eca3bec36e8fdef840f5becba1ab237f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 3,
+   "enunciado": "O que o comando 'ssh-copy-id usuario@maquina' faz?",
+   "opcoes": [
+    "Cria um novo usuário na máquina remota",
+    "Copia sua chave pública para o arquivo authorized_keys do usuário remoto, autorizando login sem senha",
+    "Apaga a chave pública da máquina remota",
+    "Testa se a máquina remota está online"
+   ],
+   "correta": 1,
+   "explicacao": "Depois desse comando, o login por chave passa a funcionar sem precisar digitar senha.",
+   "chave": "06df55c2bf93acb9691b23a72e710e6eed0a3df9"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que a diretiva 'PermitRootLogin no' no sshd_config faz?",
+   "opcoes": [
+    "Impede qualquer usuário de logar via SSH",
+    "Impede o login SSH direto como o usuário root, mesmo com a senha certa",
+    "Desativa o SSH completamente",
+    "Permite login do root sem senha"
+   ],
+   "correta": 1,
+   "explicacao": "Boa prática de segurança: obriga quem precisa de privilégios administrativos a logar como usuário comum e usar sudo.",
+   "chave": "9368507cea0b4bd6cbfd25d21067ec25094ffcb9"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que a diretiva 'PasswordAuthentication no' faz?",
+   "opcoes": [
+    "Remove a senha de todos os usuários",
+    "Desativa o login via SSH por senha, permitindo autenticação somente por chave",
+    "Criptografa as senhas existentes",
+    "Aumenta o tempo de espera do login"
+   ],
+   "correta": 1,
+   "explicacao": "Torna o servidor bem mais resistente a ataques de força bruta, já que senhas não funcionam mais via SSH.",
+   "chave": "d2cc7c7d53bb1cc922ec7b63efe1771151782752"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Por que rodamos 'sshd -t' antes de reiniciar o serviço SSH depois de editar o sshd_config?",
+   "opcoes": [
+    "Para testar a velocidade da rede",
+    "Para verificar a sintaxe do arquivo de configuração, evitando travar o acesso ao reiniciar com erro",
+    "Para gerar uma nova chave SSH",
+    "Para listar os usuários conectados"
+   ],
+   "correta": 1,
+   "explicacao": "Um erro de sintaxe no arquivo, se aplicado sem checar, pode deixar o administrador trancado para fora do servidor.",
+   "chave": "e4df022d736397fffc04226fa14d64596778b1b9"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Qual comando aplica as mudanças feitas no arquivo sshd_config?",
+   "opcoes": [
+    "systemctl reload network",
+    "systemctl restart sshd",
+    "ssh-keygen -r",
+    "reboot sshd"
+   ],
+   "correta": 1,
+   "explicacao": "Reiniciar o serviço faz ele reler o arquivo de configuração e aplicar as novas diretivas.",
+   "chave": "2f302ec428e35124c275766f594a04f6cc4979db"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que o comando 'ip addr' mostra?",
+   "opcoes": [
+    "A velocidade da internet",
+    "As interfaces de rede da máquina e os endereços IP configurados em cada uma",
+    "Os usuários conectados",
+    "O caminho até o roteador"
+   ],
+   "correta": 1,
+   "explicacao": "Mostra interfaces como lo e enp0s3, junto com os IPs (IPv4/IPv6) de cada uma.",
+   "chave": "9dd4aa2138559af5852278d277c968b987ed55e2"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que o comando 'ip route' mostra?",
+   "opcoes": [
+    "Os usuários da rede",
+    "O caminho (rota/gateway) que os dados percorrem para sair da máquina",
+    "Os nomes de domínio configurados",
+    "A senha do Wi-Fi"
+   ],
+   "correta": 1,
+   "explicacao": "Mostra, entre outras coisas, qual é o gateway padrão da rede.",
+   "chave": "96ba158c5be33c858ceceb1543ab8a0a6a00b1fa"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que o comando 'ss -tlnp' mostra?",
+   "opcoes": [
+    "O histórico de navegação",
+    "As portas de rede em escuta e qual processo está usando cada uma",
+    "A lista de e-mails enviados",
+    "As senhas salvas no navegador"
+   ],
+   "correta": 1,
+   "explicacao": "-t (TCP), -l (listening), -n (sem resolver nomes), -p (mostra o processo responsável).",
+   "chave": "e331849a8a99a4be1dbb4f7c169d5f0190b357f6"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que 'curl -I http://servidor' faz, por causa do '-I'?",
+   "opcoes": [
+    "Baixa a página inteira com imagens",
+    "Mostra só os cabeçalhos (headers) da resposta HTTP, sem o conteúdo",
+    "Instala um servidor web",
+    "Ignora certificados de segurança"
+   ],
+   "correta": 1,
+   "explicacao": "Útil para testar rapidamente se um servidor está respondendo, sem baixar tudo.",
+   "chave": "2bffbaa2a0ef6a22f46a269ec3dd93bd5e15d6ac"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'systemctl start' e 'systemctl enable' em um serviço de rede como o sshd?",
+   "opcoes": [
+    "São a mesma coisa",
+    "start liga o serviço agora; enable configura para ele iniciar sozinho em todo boot futuro",
+    "enable liga agora; start é só para o boot",
+    "start exige reinicialização da máquina"
+   ],
+   "correta": 1,
+   "explicacao": "São comandos independentes: um controla o 'agora', o outro o comportamento no próximo boot.",
+   "chave": "3dee0b921e92a3a969258ab7ba474a22c8a3acea"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Onde ficam guardadas as chaves públicas autorizadas a logar sem senha em um usuário?",
+   "opcoes": [
+    "/etc/ssh/sshd_config",
+    "~/.ssh/authorized_keys",
+    "/var/log/ssh.log",
+    "/etc/passwd"
+   ],
+   "correta": 1,
+   "explicacao": "O ssh-copy-id grava a chave pública justamente nesse arquivo, dentro da pasta .ssh do usuário.",
+   "chave": "bec63a563eec97bb438e5d5d857de74357bc3812"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que significa deixar a 'passphrase' em branco ao gerar uma chave com ssh-keygen?",
+   "opcoes": [
+    "A chave fica inválida",
+    "Permite login automático usando a chave, sem precisar digitar nenhuma senha extra",
+    "A chave expira em 1 dia",
+    "O sistema recusa criar a chave"
+   ],
+   "correta": 1,
+   "explicacao": "Passphrase vazia facilita a automação, mas reduz a proteção caso a chave privada seja roubada.",
+   "chave": "e3bcfa5442797c709c5bc099998f52076f310f93"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que 'firewall-cmd --add-service=http --permanent' faz?",
+   "opcoes": [
+    "Remove o serviço http do firewall imediatamente",
+    "Libera o serviço http na configuração PERMANENTE do firewall (precisa de --reload para aplicar)",
+    "Desliga o firewall completamente",
+    "Mostra os serviços liberados"
+   ],
+   "correta": 1,
+   "explicacao": "A opção --permanent grava a regra para sobreviver a reinicializações, mas só é aplicada de fato com --reload.",
+   "chave": "152a88f8fe776d937a0c6653d431cbcd6b5b1367"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'firewall-cmd --reload'?",
+   "opcoes": [
+    "Reinicia a máquina inteira",
+    "Aplica as configurações permanentes do firewall sem precisar reiniciar o serviço",
+    "Apaga todas as regras do firewall",
+    "Reinstala o firewalld"
+   ],
+   "correta": 1,
+   "explicacao": "Recarrega as regras permanentes para o estado ativo do firewall, sem derrubar conexões existentes.",
+   "chave": "d4a24ed1e793445ee8b2499cabe3274498889ef3"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "O que a opção '-h' faz em 'df -h' e 'du -sh'?",
+   "opcoes": [
+    "Mostra a ajuda (help) do comando",
+    "Deixa os valores em formato legível por humanos, como MB e GB",
+    "Esconde arquivos ocultos",
+    "Mostra só o cabeçalho da tabela"
+   ],
+   "correta": 1,
+   "explicacao": "-h = human-readable. Sem ela, os valores apareceriam só em bytes, difíceis de interpretar.",
+   "chave": "6bef518816f4c870a441174f7cad46879b153ebd"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'df -h' e 'du -sh pasta'?",
+   "opcoes": [
+    "São idênticos",
+    "df mostra o espaço de toda a partição/disco; du mostra o tamanho de uma pasta ou arquivo específico",
+    "du é mais rápido para discos inteiros",
+    "df só funciona com pendrives"
+   ],
+   "correta": 1,
+   "explicacao": "df = Disk Free (visão geral da partição); du = Disk Usage (uso de uma pasta/arquivo pontual).",
+   "chave": "14ec080223c78bcb025a2f66b676d0e3c914b264"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "O que 'mount -o remount,rw /sysroot' faz?",
+   "opcoes": [
+    "Formata a partição /sysroot",
+    "Remonta o sistema de arquivos, trocando de somente-leitura para leitura e escrita",
+    "Apaga tudo dentro de /sysroot",
+    "Cria uma nova partição chamada sysroot"
+   ],
+   "correta": 1,
+   "explicacao": "Usado no modo de emergência, já que /sysroot começa montado como somente leitura por padrão ali.",
+   "chave": "79ca6c9239cd2d65105356e5571ee3f4af41c0d8"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Para que serve o arquivo /etc/fstab?",
+   "opcoes": [
+    "Guardar senhas de usuários",
+    "Definir quais sistemas de arquivos devem ser montados automaticamente no boot, e em quais pastas",
+    "Guardar o histórico de comandos",
+    "Configurar o firewall"
+   ],
+   "correta": 1,
+   "explicacao": "Toda vez que o sistema inicializa, ele consulta o fstab para saber o que montar e onde.",
+   "chave": "5b3698faf0c5fc8cf529580f41be4f2484099e5f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "No LVM, o que é um PV (Physical Volume)?",
+   "opcoes": [
+    "Uma partição virtual já pronta para uso",
+    "Um disco ou partição preparado (com pvcreate) para ser usado dentro do LVM",
+    "Um arquivo de configuração do LVM",
+    "Um tipo de sistema de arquivos"
+   ],
+   "correta": 1,
+   "explicacao": "O PV é a camada mais baixa: o disco/partição física que entra no 'pool' do LVM.",
+   "chave": "f1a7480cc86a0a4f5e1bb54020711d81271e6e16"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "No LVM, o que é um VG (Volume Group)?",
+   "opcoes": [
+    "Um volume lógico pronto para ser montado",
+    "Um 'pool' que agrupa um ou mais PVs, formando um espaço de armazenamento comum",
+    "Um tipo de sistema de arquivos como ext4",
+    "Um backup automático do disco"
+   ],
+   "correta": 1,
+   "explicacao": "O VG junta o espaço de vários PVs, permitindo depois dividir esse espaço em LVs conforme a necessidade.",
+   "chave": "5b7ee3a5226296c9cd5ca977bbd84bdecf991a3f"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "No LVM, o que é um LV (Logical Volume)?",
+   "opcoes": [
+    "O disco físico original",
+    "Uma 'partição virtual' flexível, criada dentro de um VG",
+    "Um arquivo de log do sistema",
+    "Um backup incremental"
+   ],
+   "correta": 1,
+   "explicacao": "O LV é o que de fato é formatado e montado, como se fosse uma partição tradicional, mas bem mais flexível.",
+   "chave": "84b2fcd969af884b51ca7eee1303252ecb7b3117"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Qual comando prepara um disco/partição para ser usado pelo LVM?",
+   "opcoes": [
+    "lvcreate",
+    "pvcreate",
+    "vgcreate",
+    "mkfs"
+   ],
+   "correta": 1,
+   "explicacao": "pvcreate transforma um disco/partição comum em um Physical Volume, pronto para entrar em um VG.",
+   "chave": "4d55ccefd03dd3917ae7148cdf65cdd8ffeac305"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Qual comando cria um Volume Group a partir de um ou mais Physical Volumes?",
+   "opcoes": [
+    "vgcreate",
+    "pvcreate",
+    "lvcreate",
+    "mkswap"
+   ],
+   "correta": 0,
+   "explicacao": "vgcreate nome_do_vg /dev/sdX /dev/sdY agrupa os PVs informados em um único VG.",
+   "chave": "c5b03108d6b4de7d7d305d86b0161cb0237efaca"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Qual comando cria um Volume Lógico dentro de um Volume Group já existente?",
+   "opcoes": [
+    "pvcreate",
+    "vgcreate",
+    "lvcreate",
+    "mkfs.xfs"
+   ],
+   "correta": 2,
+   "explicacao": "lvcreate -L tamanho -n nome_do_lv nome_do_vg cria o volume lógico com o tamanho definido.",
+   "chave": "43a1ba6a75634c57781c7b733b7af0a44391b961"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'mkfs.xfs /dev/vg/lv'?",
+   "opcoes": [
+    "Apaga o volume lógico",
+    "Formata o volume lógico com o sistema de arquivos XFS, preparando-o para ser montado",
+    "Cria um novo Volume Group",
+    "Lista os sistemas de arquivos disponíveis"
+   ],
+   "correta": 1,
+   "explicacao": "Depois de criado, o LV ainda precisa ser formatado com um sistema de arquivos antes de ser montado e usado.",
+   "chave": "e4202d33074edceb930971c4de63835a5a4986d2"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "O que o comando 'lsblk' mostra?",
+   "opcoes": [
+    "A lista de usuários do sistema",
+    "A estrutura hierárquica de discos, partições e volumes, com tamanhos e pontos de montagem",
+    "O histórico de comandos digitados",
+    "Os processos em execução"
+   ],
+   "correta": 1,
+   "explicacao": "lsblk ('list block devices') é ótimo para visualizar rapidamente como o armazenamento está organizado.",
+   "chave": "ca3d50fca5d226e041815ed5fe28a7c349630158"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Qual é a principal vantagem do LVM sobre partições tradicionais?",
+   "opcoes": [
+    "LVM é sempre mais rápido para leitura de arquivos",
+    "Permite redimensionar volumes com flexibilidade, sem precisar reparticionar o disco inteiro",
+    "LVM não precisa ser formatado",
+    "LVM funciona sem sistema operacional"
+   ],
+   "correta": 1,
+   "explicacao": "Dá para aumentar (e, com cuidado, diminuir) o tamanho dos volumes lógicos conforme a necessidade muda.",
+   "chave": "df5a7a0c447c07a1156e48bb558280beecf4095e"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Para que serve a partição (ou volume) de swap?",
+   "opcoes": [
+    "Guardar backups automáticos",
+    "Funcionar como extensão da memória RAM em disco, usada quando a RAM se esgota",
+    "Acelerar a internet",
+    "Guardar logs do sistema"
+   ],
+   "correta": 1,
+   "explicacao": "É mais lenta que a RAM, mas evita que o sistema trave completamente quando a memória se esgota.",
+   "chave": "5ca47b2e58ad101f1e10e0e8a9603c69132b6f4c"
+  },
+  {
+   "tipo": "mc",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'restorecon -Rv /caminho'?",
+   "opcoes": [
+    "Remonta a partição",
+    "Corrige o contexto de segurança do SELinux daquele caminho, recursivamente",
+    "Apaga o conteúdo da pasta",
+    "Cria um novo volume lógico"
+   ],
+   "correta": 1,
+   "explicacao": "Necessário quando arquivos são criados/movidos para locais fora do padrão e herdam um rótulo de segurança incorreto.",
+   "chave": "1453f6f25e99596471e887d89018a2af4ee4f120"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "O comando 'ls -la' faz o quê? Explique para que serve cada uma das duas opções (-l e -a).",
+   "resposta_modelo": "Lista os arquivos e pastas do diretório atual. -l (long) mostra o formato detalhado: permissões, dono, grupo, tamanho e data. -a (all) mostra também os arquivos ocultos, que no Linux começam com ponto.",
+   "chave": "96aff3d69cdbdf48340ffc9bd643ca064e172d13"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O comando 'grep -r' faz o quê? Para que serve especificamente a opção -r?",
+   "resposta_modelo": "grep procura um texto dentro de arquivos. A opção -r (recursive) faz essa busca entrar também nas subpastas, em vez de olhar só os arquivos da pasta indicada.",
+   "chave": "efbef43436028a48eef777f21c96ce8f21410365"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "Explique o que o comando \"sed -i '/forkbomb/d' arquivo\" faz, parte por parte.",
+   "resposta_modelo": "sed edita texto por linha de comando. -i edita o arquivo diretamente (in place). O trecho entre barras '/forkbomb/' é o padrão de busca: qualquer linha que contenha esse texto. A letra 'd' no final significa 'delete': apaga essa linha.",
+   "chave": "390bb2fb94582937a9e629dfa9ebf06264552345"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 3,
+   "enunciado": "Para que serve o comando chroot? Em que situação prática usamos ele neste curso?",
+   "resposta_modelo": "chroot muda a raiz do sistema de arquivos que o shell enxerga, tratando outra pasta como se fosse a raiz '/'. Usamos no modo de emergência (depois do rd.break) para editar o sistema real do servidor, mesmo ele não estando totalmente ligado.",
+   "chave": "9e02042dcf697f9013c33baa4c717d2e87c3b3f6"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "O que é e para que serve a pasta /etc no Red Hat?",
+   "resposta_modelo": "Guarda os arquivos de configuração de todo o sistema e dos serviços instalados, como /etc/passwd, /etc/ssh/sshd_config e /etc/crontab.",
+   "chave": "cbbc411578ada7a105149df700c112db010da50a"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 2,
+   "enunciado": "O que é e para que serve a pasta /var? Por que ela tende a crescer com o tempo?",
+   "resposta_modelo": "Guarda dados que mudam com o uso do sistema: logs, cache, filas de impressão, bancos de dados. Cresce porque logs e outros dados se acumulam continuamente enquanto o sistema funciona.",
+   "chave": "8fdb054b72696f6315fcf0a60b3d2931c0a70a15"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Explique a diferença entre /bin e /usr/bin hoje em dia no RHEL.",
+   "resposta_modelo": "/bin não é mais uma pasta real por si só; é um link simbólico apontando para /usr/bin. Essa unificação (usrmerge) simplifica a estrutura de diretórios do sistema.",
+   "chave": "c8fa465b5cc85144dd131351bd35ef053c468148"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 3,
+   "enunciado": "Para que serve o parâmetro rd.break no GRUB? Explique quando ele é usado.",
+   "resposta_modelo": "Interrompe o processo de boot logo após o carregamento do initramfs, antes de qualquer serviço (como login ou cron) ser iniciado. É usado para recuperar a senha do root ou corrigir arquivos do sistema com segurança, sem o risco de algum serviço interferir.",
+   "chave": "9222fdace023345940c0046a5936c02eb62debbd"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 3,
+   "enunciado": "Por que criamos o arquivo /.autorelabel depois de editar /etc/shadow fora do processo normal de boot?",
+   "resposta_modelo": "Porque o SELinux pode aplicar um rótulo de segurança incorreto a arquivos alterados fora do fluxo normal de boot. O /.autorelabel força a releitura completa dos rótulos de segurança no próximo boot, evitando que isso bloqueie o login mesmo com a senha certa.",
+   "chave": "eff6f563851cf32dc6dd5c12a9a47d528835d362"
+  },
+  {
+   "tipo": "op",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Qual a diferença entre os comandos 'find' e 'grep'?",
+   "resposta_modelo": "find localiza arquivos e pastas pelo nome, tipo, tamanho ou data; grep procura um texto específico dentro do conteúdo dos arquivos.",
+   "chave": "9ef61d33d608ea7d18dd1ff19a94af838d35d2b0"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "No comando useradd, por que usamos -G (maiúsculo) para colocar um usuário em um grupo suplementar, e não -g (minúsculo)? Explique a diferença entre os dois.",
+   "resposta_modelo": "-G adiciona o usuário a grupos SUPLEMENTARES, podendo ser vários além do grupo principal. -g define o grupo PRIMÁRIO do usuário, que é único e obrigatório. Como um grupo suplementar é extra (não substitui o principal), usamos -G.",
+   "chave": "ef6892effcf8057682fb27b04d250e49c562c21f"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "No comando chage, explique a diferença entre -M e -m, e por que uma opção é maiúscula e a outra minúscula.",
+   "resposta_modelo": "-M (maiúsculo, Maximum) define o número MÁXIMO de dias que a senha pode durar antes de precisar ser trocada. -m (minúsculo, minimum) define o número MÍNIMO de dias que o usuário deve esperar antes de poder trocar a senha de novo. A convenção usada é: maiúscula para o limite mais amplo, minúscula para o mais restrito.",
+   "chave": "83ea2b9b1fdfc5f4452bf41a329bb5ad44101cc3"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que o comando 'chage -E data usuario' faz? Por que é usada uma letra maiúscula nesse caso?",
+   "resposta_modelo": "Define a data em que a CONTA INTEIRA expira (não apenas a senha). É maiúscula (Expire) porque afeta um escopo mais amplo — a conta como um todo —, diferente de opções que mexem só em detalhes pontuais da senha.",
+   "chave": "0811315e5a05ced8768145c1aa43f2331f529ec2"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que faz o comando 'chage -d 0 usuario'? Por que a opção usada aqui é minúscula?",
+   "resposta_modelo": "Zera a data da última troca de senha, fazendo o sistema entender que ela já expirou e forçando uma nova senha no próximo login. É minúscula porque se refere a um dado específico (a data da última alteração), sem um '-D' equivalente para esse fim no chage.",
+   "chave": "de568ff44fcebf7dc978f2ea614f977b8bce3dc6"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Explique a diferença entre 'su usuario' e 'su - usuario'. O que o hífen muda?",
+   "resposta_modelo": "'su usuario' troca a identidade mas mantém o diretório atual e parte do ambiente anterior. 'su - usuario' simula um login completo: leva para a pasta pessoal do novo usuário e carrega todo o ambiente dele, como se tivesse entrado direto como ele.",
+   "chave": "df490bbcdc841a39a230ce8a3a386339833857fe"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'sudo -i'? Qual a diferença dele em relação a 'sudo comando'?",
+   "resposta_modelo": "'sudo -i' abre uma sessão completa como root, mantendo você nela até digitar 'exit'. 'sudo comando' executa apenas aquele comando específico com privilégios de root e retorna automaticamente ao usuário original logo em seguida.",
+   "chave": "923d8096acdd0cd85b4210a52584eb2c2e1009a2"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que o número '2' representa no comando 'chmod 2770 pasta'? Qual o efeito prático dele?",
+   "resposta_modelo": "É o bit especial setgid. O efeito prático é que qualquer arquivo novo criado dentro dessa pasta herda automaticamente o grupo dono da pasta, em vez do grupo primário de quem criou o arquivo.",
+   "chave": "b0251579c994cb5f0b0c1f0798e9ae929ac6cab9"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "O que é e para que serve o sticky bit, representado pelo dígito '1' em 'chmod 1777 pasta'?",
+   "resposta_modelo": "O sticky bit impede que um usuário remova ou renomeie arquivos que pertencem a outra pessoa dentro da pasta, mesmo que ele tenha permissão de escrita nela. Só o dono do arquivo (ou o root) pode removê-lo.",
+   "chave": "67f849ec650ad29554c8f3a3068b1403acf49157"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'chmod' e 'chattr'? Dê um exemplo de quando usar cada um.",
+   "resposta_modelo": "chmod controla as permissões tradicionais (leitura, escrita, execução para dono, grupo e outros). chattr controla atributos especiais mais profundos, como tornar um arquivo imutável com +i — útil, por exemplo, para impedir que um script malicioso seja apagado ou sobrescrito, mesmo pelo dono.",
+   "chave": "da9fdb673144cc4f70100ebcd708f244e4048239"
+  },
+  {
+   "tipo": "op",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Explique a diferença entre 'chown' e 'chgrp'.",
+   "resposta_modelo": "chown muda o dono de um arquivo e, com a sintaxe dono:grupo, pode mudar o grupo também ao mesmo tempo. chgrp muda apenas o grupo dono, sem alterar o usuário dono do arquivo.",
+   "chave": "cf15f069be7e68310602276df3eddbd502a2a16a"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando ssh-keygen? O que significa deixar a passphrase em branco?",
+   "resposta_modelo": "Gera um par de chaves (pública e privada) para autenticação SSH. Deixar a passphrase vazia permite fazer login automaticamente usando a chave, sem precisar digitar nenhuma senha extra.",
+   "chave": "b1210eaf6166345978665333ffe836c2ea75c773"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que o comando ssh-copy-id faz, exatamente?",
+   "resposta_modelo": "Copia a chave pública do usuário local para o arquivo ~/.ssh/authorized_keys do usuário na máquina remota, autorizando aquela chave específica a fazer login sem senha dali em diante.",
+   "chave": "b75bc3b544ba97c9bf204f69b917c3a8b9c0acb3"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Explique a diretiva 'PermitRootLogin no' no arquivo sshd_config. Por que isso é uma boa prática de segurança?",
+   "resposta_modelo": "Impede qualquer login SSH direto como root, mesmo que a senha esteja correta. Isso obriga quem precisa de privilégios administrativos a logar como um usuário comum e depois usar sudo, dificultando ataques de força bruta contra a conta mais poderosa do sistema.",
+   "chave": "455c1c769ea35be4c3d7f753f2efe4b47ff44fdb"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Para que serve o comando 'sshd -t' antes de reiniciar o serviço SSH?",
+   "resposta_modelo": "Testa a sintaxe do arquivo de configuração sem aplicar nada de fato, evitando reiniciar o serviço com um arquivo quebrado — o que poderia trancar o administrador para fora do próprio servidor.",
+   "chave": "7df75549404db3903e006e1fc1106cd86127fd3d"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que o comando 'ss -tlnp' mostra? Explique o significado de cada letra da opção.",
+   "resposta_modelo": "Lista as portas de rede em escuta no sistema. -t = conexões TCP; -l = listening (em escuta); -n = não resolve nomes, mostra números diretamente; -p = mostra qual processo está usando cada porta.",
+   "chave": "4bad06791afe5bfde1acfc81d845f04206400203"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'ip addr' e 'ip route'?",
+   "resposta_modelo": "'ip addr' mostra os endereços IP configurados em cada interface de rede da máquina. 'ip route' mostra o caminho (rota/gateway) que os dados percorrem para sair da máquina em direção a outras redes.",
+   "chave": "8a9941f6bb2963e424cb564b95cbe9d436d23f61"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "O que 'curl -I http://servidor' faz, e por que isso é útil para testar um servidor web?",
+   "resposta_modelo": "Pede apenas os cabeçalhos (headers) HTTP da resposta, sem baixar a página inteira. Isso permite confirmar rapidamente se o servidor está no ar e qual código de status (200, 403, 404 etc.) ele está retornando, sem gastar tempo baixando todo o conteúdo.",
+   "chave": "a4066584e82b6aa2e3b6dd7ce9c87535c4477860"
+  },
+  {
+   "tipo": "op",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Por que configuramos 'PasswordAuthentication no' somente depois de confirmar que o login por chave já funcionava?",
+   "resposta_modelo": "Porque, se a chave não estivesse configurada corretamente ainda, desativar a autenticação por senha deixaria o administrador sem nenhuma forma de logar no servidor — um erro de ordem que pode causar um 'lockout' completo.",
+   "chave": "2d0c2aa8231db95b8698410a9cfa889744656fd2"
+  },
+  {
+   "tipo": "op",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Qual a diferença entre 'df -h' e 'du -sh'?",
+   "resposta_modelo": "df -h mostra o espaço livre e usado de cada partição/disco inteiro do sistema. du -sh mostra o tamanho total ocupado por uma pasta ou arquivo específico que você indicar.",
+   "chave": "c73fdb6c415a27ac8220c817c8c9928b5c94f754"
+  },
+  {
+   "tipo": "op",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Explique a relação entre PV, VG e LV no LVM.",
+   "resposta_modelo": "O PV (Physical Volume) é o disco ou partição física preparada para o LVM. Vários PVs são agrupados formando um VG (Volume Group), que funciona como um 'pool' de espaço comum. Dentro do VG, criamos os LVs (Logical Volumes), que funcionam como partições virtuais flexíveis, podendo ser redimensionadas depois.",
+   "chave": "ba6600daec56db0e062c41487cd6e70998ca6f90"
+  },
+  {
+   "tipo": "op",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Qual a principal vantagem de usar LVM em vez de partições tradicionais?",
+   "resposta_modelo": "Permite redimensionar os volumes lógicos (aumentar, e com mais cuidado, diminuir) conforme a necessidade do sistema muda, sem precisar reparticionar o disco inteiro do zero como seria necessário com partições tradicionais.",
+   "chave": "3bd5cd779f37dde396c939c1fe6ee8c334461909"
+  },
+  {
+   "tipo": "op",
+   "categoria": 3,
+   "nivel": 1,
+   "enunciado": "Para que serve o arquivo /etc/fstab?",
+   "resposta_modelo": "Define quais sistemas de arquivos (partições, discos, volumes) devem ser montados automaticamente, e em quais pastas, toda vez que o sistema é inicializado.",
+   "chave": "e357121367557c8db482a1061ac4067c19d4c2ea"
+  },
+  {
+   "tipo": "op",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "O que o comando 'restorecon -Rv /caminho' faz, e quando é necessário usá-lo?",
+   "resposta_modelo": "Corrige o contexto de segurança do SELinux de um arquivo ou pasta específica, de forma recursiva. É necessário depois de criar, mover ou copiar arquivos para locais fora do padrão, já que eles podem herdar um rótulo de segurança incorreto, o que pode bloquear serviços como o Apache de acessá-los.",
+   "chave": "8be3769a8bd6cf6f770f56f681e2a13332ecad39"
+  },
+  {
+   "tipo": "op",
+   "categoria": 3,
+   "nivel": 2,
+   "enunciado": "Por que a partição de swap continua sendo útil mesmo em sistemas com bastante memória RAM?",
+   "resposta_modelo": "A swap funciona como uma extensão da memória RAM, só que em disco. Quando a RAM se esgota, o sistema pode usar a swap para continuar funcionando (de forma mais lenta), em vez de travar completamente ou matar processos abruptamente.",
+   "chave": "fb72177ad06c2b03a759480994f376dc38dd204a"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Liste os arquivos da pasta atual.",
+   "respostas_aceitas": [
+    "ls"
+   ],
+   "resposta_modelo": "ls",
+   "explicacao": "ls lista o conteúdo da pasta.",
+   "chave": "7a0ff5325c9337051a93dc0327bfd9bd0d275598"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Mostre em qual pasta você está.",
+   "respostas_aceitas": [
+    "pwd"
+   ],
+   "resposta_modelo": "pwd",
+   "explicacao": "pwd = print working directory.",
+   "chave": "bc9c1df6cb0487468fc1829192ce79c16d4ae316"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Crie uma pasta chamada teste.",
+   "respostas_aceitas": [
+    "mkdir teste"
+   ],
+   "resposta_modelo": "mkdir teste",
+   "explicacao": "mkdir cria pastas.",
+   "chave": "b4f1bd1f2e8835960f6afedc516bdf6518cdecbe"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Crie um arquivo vazio chamado nota.txt.",
+   "respostas_aceitas": [
+    "touch nota.txt"
+   ],
+   "resposta_modelo": "touch nota.txt",
+   "explicacao": "touch cria um arquivo vazio.",
+   "chave": "1ee6eb5d6bfb19ed61f9ce595ef1653ccbf51d3c"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Mostre o conteúdo do arquivo nota.txt.",
+   "respostas_aceitas": [
+    "cat nota.txt"
+   ],
+   "resposta_modelo": "cat nota.txt",
+   "explicacao": "cat exibe o conteúdo na tela.",
+   "chave": "6e04e5edef8cc89059f4b57bc190ce06a809b12f"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Copie o arquivo a.txt para b.txt.",
+   "respostas_aceitas": [
+    "cp a.txt b.txt"
+   ],
+   "resposta_modelo": "cp a.txt b.txt",
+   "explicacao": "cp origem destino.",
+   "chave": "0c1d9a6c4709ca269b1039f07651f7e81d7fdae6"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Apague o arquivo nota.txt.",
+   "respostas_aceitas": [
+    "rm nota.txt"
+   ],
+   "resposta_modelo": "rm nota.txt",
+   "explicacao": "rm remove arquivos.",
+   "chave": "89ad13974e43595f77cef9b9f881154bc9773ca4"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Abra o manual do comando ls.",
+   "respostas_aceitas": [
+    "man ls"
+   ],
+   "resposta_modelo": "man ls",
+   "explicacao": "man mostra o manual de um comando.",
+   "chave": "7d777defe6a3c78e387f2561cedb28ee8646dee5"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 0,
+   "nivel": 1,
+   "enunciado": "Limpe a tela do terminal.",
+   "respostas_aceitas": [
+    "clear"
+   ],
+   "resposta_modelo": "clear",
+   "explicacao": "clear limpa a tela.",
+   "chave": "718bdb5f42a896ff7c3d543ba63fa9b85bfc0c47"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Mostre o nome do usuário atual.",
+   "respostas_aceitas": [
+    "whoami"
+   ],
+   "resposta_modelo": "whoami",
+   "explicacao": "whoami = who am I.",
+   "chave": "419f5ae0d5d028239013b607985609f815109f9e"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Crie o usuário ana.",
+   "respostas_aceitas": [
+    "useradd ana"
+   ],
+   "resposta_modelo": "useradd ana",
+   "explicacao": "useradd cria um usuário.",
+   "chave": "1b5db94b9bba2386660907173a11157e67589184"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Defina a senha do usuário ana.",
+   "respostas_aceitas": [
+    "passwd ana"
+   ],
+   "resposta_modelo": "passwd ana",
+   "explicacao": "passwd altera a senha.",
+   "chave": "b5fdab79597847a9de7e89afafabb5f7f299e755"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Mostre o UID e os grupos do usuário ana.",
+   "respostas_aceitas": [
+    "id ana"
+   ],
+   "resposta_modelo": "id ana",
+   "explicacao": "id mostra UID e grupos.",
+   "chave": "4d1e85c677d41e4a0b8c722a286193839f3a6229"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 1,
+   "nivel": 2,
+   "enunciado": "Dê permissão de execução ao arquivo script.sh.",
+   "respostas_aceitas": [
+    "chmod +x script.sh",
+    "chmod u+x script.sh"
+   ],
+   "resposta_modelo": "chmod +x script.sh",
+   "explicacao": "+x adiciona a permissão de execução.",
+   "chave": "f0e4d4dfae1546b515dcbd584d14199003c54224"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 1,
+   "nivel": 1,
+   "enunciado": "Apague o usuário ana.",
+   "respostas_aceitas": [
+    "userdel ana"
+   ],
+   "resposta_modelo": "userdel ana",
+   "explicacao": "userdel remove a conta.",
+   "chave": "04f467afb91fe2cb199e36a4b03c20b51ca527b7"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 2,
+   "nivel": 1,
+   "enunciado": "Mostre os endereços IP da máquina.",
+   "respostas_aceitas": [
+    "ip addr",
+    "ip a",
+    "ip address"
+   ],
+   "resposta_modelo": "ip addr",
+   "explicacao": "ip addr lista as interfaces e IPs.",
+   "chave": "5ec4dfda7c26108febb98bc6fa808e0c070508c9"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 2,
+   "nivel": 1,
+   "enunciado": "Teste a conexão com o host servidor usando ping.",
+   "respostas_aceitas": [
+    "ping servidor"
+   ],
+   "resposta_modelo": "ping servidor",
+   "explicacao": "ping envia pacotes de teste.",
+   "chave": "13eb1f3a0c2ad83ec5615c4826405cd429acba76"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 2,
+   "nivel": 1,
+   "enunciado": "Mostre o nome da máquina.",
+   "respostas_aceitas": [
+    "hostname"
+   ],
+   "resposta_modelo": "hostname",
+   "explicacao": "hostname exibe o nome do host.",
+   "chave": "36b4294c64202a780509b3961a22ed4da43fd865"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Conecte via SSH ao servidor como o usuário aluno.",
+   "respostas_aceitas": [
+    "ssh aluno@servidor"
+   ],
+   "resposta_modelo": "ssh aluno@servidor",
+   "explicacao": "Sintaxe: ssh usuario@maquina.",
+   "chave": "2931ba1daf9eb0bf4e966c4d04b37fece786b914"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 2,
+   "nivel": 2,
+   "enunciado": "Mostre se o firewalld está em execução.",
+   "respostas_aceitas": [
+    "firewall-cmd --state"
+   ],
+   "resposta_modelo": "firewall-cmd --state",
+   "explicacao": "--state responde running ou not running.",
+   "chave": "ba04a93692b7659ccf4c01b252b8ae7664701c57"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 3,
+   "nivel": 1,
+   "enunciado": "Mostre o espaço dos discos em formato legível.",
+   "respostas_aceitas": [
+    "df -h"
+   ],
+   "resposta_modelo": "df -h",
+   "explicacao": "-h = human readable.",
+   "chave": "d7abee805a552150f5d23f180a17407cacf4d0e6"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 3,
+   "nivel": 1,
+   "enunciado": "Liste os discos e partições.",
+   "respostas_aceitas": [
+    "lsblk"
+   ],
+   "resposta_modelo": "lsblk",
+   "explicacao": "lsblk mostra discos, partições e volumes.",
+   "chave": "d7e11e99075918063ac8f88f464eeb0d8dc7c8e0"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 3,
+   "nivel": 1,
+   "enunciado": "Mostre o tamanho total da pasta /var em formato legível.",
+   "respostas_aceitas": [
+    "du -sh /var"
+   ],
+   "resposta_modelo": "du -sh /var",
+   "explicacao": "-s resume e -h deixa legível.",
+   "chave": "edb4a81ba37bf9969f05d842dea0be6ff8883db3"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 3,
+   "nivel": 1,
+   "enunciado": "Mostre a memória livre em formato legível.",
+   "respostas_aceitas": [
+    "free -h"
+   ],
+   "resposta_modelo": "free -h",
+   "explicacao": "free mostra RAM e swap.",
+   "chave": "53787c2e0d88b7893ce775233a3855cb83a7a666"
+  },
+  {
+   "tipo": "cmd",
+   "categoria": 3,
+   "nivel": 1,
+   "enunciado": "Mostre o conteúdo do arquivo /etc/fstab.",
+   "respostas_aceitas": [
+    "cat /etc/fstab"
+   ],
+   "resposta_modelo": "cat /etc/fstab",
+   "explicacao": "O fstab define as montagens automáticas.",
+   "chave": "00a0d955a5d66e9f6e1a9c430dcd430e0dc8cbf1"
+  }
+ ]
+}
