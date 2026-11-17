@@ -1,17 +1,17 @@
 <?php
 
-use App\Http\Controllers\QuestaoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestaoController;
 use App\Http\Controllers\SimuladoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('simulado');
-});
+    return view('dashboard');
+})->name('public.home');
 
 Route::get('/simulado', function () {
     return view('simulado');
-})->name('simulado');
+})->middleware('auth')->name('simulado');
 
 Route::prefix('api')->name('api.')->group(function () {
     Route::get('/questoes/contagem', [QuestaoController::class, 'contagem'])
@@ -32,9 +32,7 @@ Route::prefix('api')->name('api.')->group(function () {
     });
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

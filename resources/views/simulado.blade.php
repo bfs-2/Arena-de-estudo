@@ -35,10 +35,7 @@
   @auth
   <div class="authlinks">
    <form method="POST" action="{{ route('logout') }}">@csrf<button type="submit" title="Sair de {{ auth()->user()->email }}">Sair</button></form>
-   <a class="avatar" href="{{ route('profile.edit') }}" title="{{ auth()->user()->name }}" aria-label="Minha conta"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.500 21c.8-4.500 4-6.500 7.500-6.500s6.700 2 7.500 6.500"/></svg></a>
   </div>
-  @else
-  <div class="authlinks"><a href="{{ route('login') }}">Entrar</a><a href="{{ route('register') }}">Criar conta</a></div>
   @endauth
  </header>
 

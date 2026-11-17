@@ -17,6 +17,22 @@ class AuthenticationTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_public_home_can_be_rendered_without_authentication(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertOk();
+        $response->assertSee('Entrar');
+        $response->assertSee('Criar conta');
+    }
+
+    public function test_quiz_redirects_guests_to_login(): void
+    {
+        $response = $this->get('/simulado');
+
+        $response->assertRedirect(route('login', absolute: false));
+    }
+
     public function test_users_can_authenticate_using_the_login_screen(): void
     {
         $user = User::factory()->create();
@@ -27,7 +43,7 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        $response->assertRedirect(route('simulado', absolute: false));
     }
 
     public function test_users_can_not_authenticate_with_invalid_password(): void
@@ -49,6 +65,6 @@ class AuthenticationTest extends TestCase
         $response = $this->actingAs($user)->post('/logout');
 
         $this->assertGuest();
-        $response->assertRedirect('/');
+        $response->assertRedirect(route('dashboard', absolute: false));
     }
 }
