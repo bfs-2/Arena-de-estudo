@@ -34,6 +34,7 @@
   <div class="tag"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 4.5l13 7.5-13 7.5z" fill="currentColor"/></svg>Simulado Interativo</div>
   @auth
   <div class="authlinks">
+   <a href="{{ route('dashboard') }}">← Escolher outro quiz</a>
    <form method="POST" action="{{ route('logout') }}">@csrf<button type="submit" title="Sair de {{ auth()->user()->email }}">Sair</button></form>
   </div>
   @endauth
