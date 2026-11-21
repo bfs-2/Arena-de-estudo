@@ -23,7 +23,7 @@ class AuthenticationTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('Entrar');
-        $response->assertSee('Criar conta');
+        $response->assertSee('Cadastrar-se');
     }
 
     public function test_quiz_redirects_guests_to_login(): void

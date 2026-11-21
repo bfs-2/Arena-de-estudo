@@ -1,0 +1,62 @@
+#!/bin/sh
+
+set -u
+
+FAILED=0
+
+run_step() {
+    name="$1"
+    shift
+
+    printf '%s\n' "[pre-commit] ${name}"
+    if "$@"; then
+        printf '%s\n' "[pre-commit] OK: ${name}"
+    else
+        printf '%s\n' "[pre-commit] ERRO: ${name}"
+        FAILED=1
+    fi
+}
+
+staged_php_files=$(git diff --cached --name-only --diff-filter=ACMRTUXB -- '*.php')
+staged_blade_files=$(printf '%s\n' "$staged_php_files" | grep -v '\.blade\.php$' || true)
+staged_app_php_files=$(printf '%s\n' "$staged_blade_files" | grep -E '^(app|routes)/.*\.php$' || true)
+
+if [ -n "$staged_blade_files" ]; then
+    printf '%s\n' "[pre-commit] Sintaxe PHP dos arquivos alterados"
+    syntax_failed=0
+    for file in $staged_blade_files; do
+        if ! php -l "$file"; then
+            syntax_failed=1
+        fi
+    done
+    if [ "$syntax_failed" -ne 0 ]; then
+        printf '%s\n' "[pre-commit] ERRO: sintaxe PHP"
+        FAILED=1
+    else
+        printf '%s\n' "[pre-commit] OK: sintaxe PHP"
+    fi
+else
+    printf '%s\n' "[pre-commit] Sintaxe PHP: nenhum arquivo PHP alterado"
+fi
+
+if [ -n "$staged_blade_files" ]; then
+    run_step "Laravel Pint" php vendor/bin/pint --test --format agent $staged_blade_files
+else
+    printf '%s\n' "[pre-commit] Laravel Pint: nenhum arquivo PHP alterado"
+fi
+
+if [ -n "$staged_app_php_files" ]; then
+    run_step "Larastan/PHPStan" php vendor/bin/phpstan analyse --memory-limit=1G
+else
+    printf '%s\n' "[pre-commit] Larastan/PHPStan: nenhum arquivo PHP de aplicação alterado"
+fi
+run_step "Testes Laravel" php artisan test --compact
+run_step "Build frontend" npm run build
+
+if [ "$FAILED" -ne 0 ]; then
+    printf '%s\n' "[pre-commit] COMMIT BLOQUEADO: corrija os erros acima."
+    exit 1
+fi
+
+printf '%s\n' "[pre-commit] TUDO OK: commit liberado."
+exit 0

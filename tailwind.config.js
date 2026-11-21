@@ -11,11 +11,22 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            colors: {
+                arena: {
+                    black: '#050308',
+                    purple: '#2E0A3F',
+                    lilac: '#B58CFF',
+                    ice: '#F1E8FB',
+                    violet: '#7C3AED',
+                    'violet-light': '#A78BFA',
+                },
             },
-        },
+            fontFamily: {
+                display: ['"Playfair Display"', 'serif'],
+                montaser: ['"Montaser Arabic"', 'Montserrat', 'sans-serif'],
+            }
+        }
     },
 
-    plugins: [forms],
+
 };
